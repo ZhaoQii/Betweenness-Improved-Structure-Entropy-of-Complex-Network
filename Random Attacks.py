@@ -7,6 +7,7 @@ Created on Wed May 31 15:33:13 2017
 import numpy as np
 import networkx as nx
 import random as rd
+import pandas as pd
 
 # "adjacent" here is the adjacent matrix of China's high-speed railway network, and "city" is all citys' (stations')
 # name, as noted in readme.md
