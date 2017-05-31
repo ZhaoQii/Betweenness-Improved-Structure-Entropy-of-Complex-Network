@@ -6,10 +6,12 @@ Created on Thu May 25 16:36:05 2017
 """
 from matplotlib import style
 import matplotlib.pyplot as plt
+import networkx as nx
+import numpy as np
 
 style.use('ggplot')
 
-def show_graph(adjacency_matrix):    #visulization our network (Based on Scott's answer on 					     # Stackoverflow)
+def show_graph(adjacency_matrix):    # visulize our network (Based on Scott's answer on Stackoverflow)
 
     rows, cols = np.where(adjacency_matrix == 1)
     edges = zip(rows.tolist(), cols.tolist())
@@ -21,7 +23,7 @@ def show_graph(adjacency_matrix):    #visulization our network (Based on Scott's
 
 # the following function is for showing the structure entropy values
 # therefore, for checking the entropy values after attacking those specific cities, plz run
-# graph_entropy(range(len(target)), entro_new, entropy_new) , after running the “Specific Attacks.py”
+# graph_entropy(range(len(target)), entro_new, entropy_new) , after running the “Specific Attacks.py”;
 # for checking the entropy values after random attacks, plz just run
 # graph_entropy(ratio, entro_ratio, entropy_ratio) after running the “Random Attacks.py”
 def graph_entropy(x, entro_ratio, entropy_ratio):
