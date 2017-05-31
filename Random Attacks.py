@@ -25,8 +25,8 @@ entropy = -np.sum(np.log(between) * between) # network entropy based on node bet
 ## random attacks test
 ratio = np.array(range(10))/10   # ratio of cities to be attacked (or eliminated)
 times = 50     # times to run for computing the average entropy given each ratio
-entro_ratio = np.zeros(len(ratio))
-entropy_ratio = np.zeros(len(ratio))
+entro_ratio = np.zeros(len(ratio))   # "entro_ratio" saves the average entropy given each ratio based on node degree
+entropy_ratio = np.zeros(len(ratio))    # "entropy_ratio" saves the average entropy given each ratio based on betweenness centrality
 for ii in range(len(ratio)):
     entro_new = np.zeros(times)
     entropy_new = np.zeros(times)
@@ -34,7 +34,7 @@ for ii in range(len(ratio)):
         adjacent_new = adjacent.copy()
         target_no = rd.sample(list(range(citynum)), int(np.floor(citynum * ratio[ii]))) # randomly sample those cities to be attacked
 
-        adjacent_new[target_no, :] = 0
+        adjacent_new[target_no, :] = 0    # attack the cities we sampled
         adjacent_new[:, target_no] = 0
                     
         degree_new = np.sum(adjacent_new, 1)
