@@ -1,2 +1,2 @@
 # Betweenness-Improved-Structure-Entropy-of-Complex-Network
-Test the efficiency of Betweenness Centrality improved structure entropy, by exposing  China's High-speed railway network, 
+Test the efficiency of Betweenness Centrality improved structure entropy of complex network, by exposing  China's High-speed railway network to specfic attacks and random attacks. Before running my codes here, you should first check my "Adjacent-Matrix-from-Pairwise-Connection" repository to get the high-speed railway network data and correspondent adjacent matrix.
