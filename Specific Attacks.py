@@ -9,7 +9,7 @@ import networkx as nx
 import pandas as pd
 
 # "adjacent" here is the adjacent matrix of China's high-speed railway network, and "city" is all citys' (stations')
-# name, as noted in readme.md
+# name, as noted in readme.md. Make sure run that code before running the below
 degree = np.sum(adjacent, 1)  # compute the degree vector for every node
 I = np.array(degree / np.sum(degree))  # I is the degree of importance
 entro = -np.sum(np.log(I) * I)       # initial network entropy based on node degree
@@ -24,12 +24,12 @@ entropy = -np.sum(np.log(between) * between) # initial network entropy based on 
 
 ## Specific attacks test
 target = ['广州', '北京', '成都', '常州', '上海', '徐州', '石家庄', '郑州', '重庆', '杭州', '长沙', '西安']
-   # target here contains several important cities in China, and we attack (deactivate or eliminate) them one by one and
+   # target here contains several important cities in China, and we attack (deactivate or eliminate) them one by one 
    # and compute the structure entropy respectively
 target_no = [city[city == x].index.tolist()[0] for x in target]  # get the correspondent sequence numbers for these cities
 adjacent_new = adjacent.copy()
-entro_new = np.zeros(len(target))   # "entro_new" saves the entropies based on node degree
-entropy_new = np.zeros(len(target))     # "entropy_new" saves the entropies based on betweenness centrality
+entro_new = np.zeros(len(target))   # "entro_new" saves the entropies based on node degree after specific attacks
+entropy_new = np.zeros(len(target))     # "entropy_new" saves the entropies based on betweenness centrality after specific attacks
 j = 0
 for item in target_no:
 
